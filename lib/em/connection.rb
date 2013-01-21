@@ -616,7 +616,7 @@ module EventMachine
     #
     # @param [Float, #to_f] value Connection timeout in seconds
     def pending_connect_timeout= value
-      EventMachine::set_pending_connect_timeout @signature, value.to_f
+      EventMachine::set_pending_connect_timeout @signature, value.to_f if EventMachine.respond_to? :set_pending_connect_timeout
     end
     alias set_pending_connect_timeout pending_connect_timeout=
 
