@@ -83,7 +83,7 @@ module EventMachine
 
     # @private
     def send_data target, data, datalength
-      selectable = Reactor.instance.get_selectable( target ) or raise "unknown send_data target"
+      selectable = Reactor.instance.get_selectable( target )# or raise "unknown send_data target"
       selectable.send_data data
     end
 
@@ -93,7 +93,7 @@ module EventMachine
     # raise an error here in that case.
     # @private
     def close_connection target, after_writing
-      selectable = Reactor.instance.get_selectable( target ) or raise "unknown close_connection target"
+      selectable = Reactor.instance.get_selectable( target )# or raise "unknown close_connection target"
       selectable.schedule_close after_writing
     end
 
